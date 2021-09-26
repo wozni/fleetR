@@ -1,13 +1,13 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
-import { moduleRoutes } from "../modules";
 import Shell from '../views/Shell.vue'
+import { shellRoutes  } from "../views"
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',    
     component: Shell,
     children: [
-      ...moduleRoutes
+      ...shellRoutes
     ]
   },  
 ]
