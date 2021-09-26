@@ -20,13 +20,12 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, ref } from 'vue'
-import { useStore } from 'vuex';
-import { moduleRoutes } from '../modules';
+import { defineComponent, ref } from 'vue'
+import { shellRoutes } from '.';
 
 export default defineComponent({
     setup() {
-        const menu = ref(moduleRoutes
+        const menu = ref(shellRoutes
             .filter( r => r.meta?.menu)
             .map(r => ({ ...r.meta?.menu as any,
                 route: {
