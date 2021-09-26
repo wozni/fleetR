@@ -1,0 +1,8 @@
+{
+    "appTitle": "Fleet management",
+    "vehicles": {
+        "vehicles": "Vehicles",
+        "addVehicle": "Add vehicle",
+        "removeVehicle": "Remove vehicle"
+    }
+}

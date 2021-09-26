@@ -1,5 +1,5 @@
 import { RouteRecordRaw } from 'vue-router';
-import VehiclesComponent  from './components/vehicles.vue'
+import VehiclesComponent  from './vehicles.vue'
 
 export const routes: RouteRecordRaw[] =  [{
         name: "vehicles",
@@ -7,7 +7,7 @@ export const routes: RouteRecordRaw[] =  [{
         component: VehiclesComponent,        
         meta: {
             menu: {
-                title: "Pojazdy"
+                title: "vehicles.vehicles"
             }
         }
     }];
