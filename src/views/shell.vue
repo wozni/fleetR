@@ -6,6 +6,7 @@
       <v-spacer></v-spacer>
       <a @click="changeLocale('pl')">pl</a>|
       <a @click="changeLocale('en')">en</a>
+      <v-btn plain>aaa</v-btn>
     </v-app-bar>
     <v-navigation-drawer app v-model="expanded">
       <v-list density="compact">
@@ -67,7 +68,7 @@ export default defineComponent({
   },
 });
 </script>
-<i18n locale="pl" global>
+<i18n locale="pl" >
 {
   "shell": {
     "title": "Zarządzanie flotą pojazdów",
@@ -75,10 +76,10 @@ export default defineComponent({
       "vehicles": "Pojazdy",
       "routes": "Trasy"
     }
-  },    
+  }
 }
 </i18n>
-<i18n locale="en" global>
+<i18n locale="en" >
 {
   "shell": {
     "title": "Fleet management",
@@ -86,7 +87,7 @@ export default defineComponent({
       "vehicles": "Vehicles",
       "routes": "Routes"
     }
-  },  
+  }
 }
 </i18n>
 

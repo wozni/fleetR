@@ -1,5 +1,4 @@
 import "@mdi/font/css/materialdesignicons.css";
-
 import { createApp } from 'vue'
 import vuetify from './plugins/vuetify'
 import createI18n from "./plugins/i18n"

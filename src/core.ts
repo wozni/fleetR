@@ -1,14 +1,10 @@
-import { LocaleMessageDictionary, LocaleMessages, VueMessageType } from 'vue-i18n';
 import { RouteRecordRaw } from 'vue-router';
 import { ModuleTree } from 'vuex';
 import { inject, ref, Ref } from 'vue';
-
 import  VehiclesModule from "./modules/vehicles"
 import { VehiclesStore } from '@/modules/vehicles/store';
 import { State as VehiclesState } from "@/modules/vehicles/store/state";
-
 import RoutesModule from "./modules/routes";
-
 
 export interface User {
     login: string
@@ -21,7 +17,6 @@ export interface AppModule {
     init?: (ctx: AppContext) => void,
     initShell?: (ctx: AppContext) => void;
 }
-
 
 export interface AppContext {
     user?: Ref<User>;
