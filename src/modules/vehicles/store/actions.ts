@@ -1,7 +1,7 @@
-import { Vehicle } from "@/model/vehicles";
+import { Vehicle } from "../model";
 import { ActionContext, ActionTree } from "vuex";
 import { State } from "./state";
-import { RootState } from "..";
+import { RootState } from "@/core";
 import { Mutations } from "./mutations";
 
 type AugmentedActionContext = {

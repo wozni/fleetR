@@ -1,4 +1,4 @@
-import { Vehicle } from "@/model/vehicles";
+import { Vehicle } from "../model";
 import { MutationTree } from "vuex";
 import { State } from "./state";
 

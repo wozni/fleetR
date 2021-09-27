@@ -1,4 +1,4 @@
-import { Vehicle } from "@/model/vehicles";
+import { Vehicle } from "../model";
 
 export interface State {
     vehicles: Vehicle[]

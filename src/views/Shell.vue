@@ -2,7 +2,7 @@
   <v-app>
     <v-app-bar app density="compact" color="primary">
       <v-app-bar-nav-icon @click="expanded = !expanded"></v-app-bar-nav-icon>
-      <v-app-bar-title>{{ t("shell.title") }} </v-app-bar-title>
+      <v-app-bar-title>{{ t("title") }} </v-app-bar-title>
       <v-spacer></v-spacer>
       <a @click="changeLocale('pl')">pl</a>|
       <a @click="changeLocale('en')">en</a>
@@ -14,7 +14,10 @@
           :key="idx"
           :to="menuItem.route"
         >
-          {{ t(menuItem.title) }}
+          <v-list-item-avatar>
+              <v-icon v-if="menuItem.icon">{{menuItem.icon}}</v-icon>
+              </v-list-item-avatar>        
+          <v-list-item-title>{{ t(menuItem.title) }}</v-list-item-title>
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
@@ -25,33 +28,38 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { useAppContext } from "@/core";
+import { defineComponent, inject, ref } from "vue";
 import { useI18n } from "vue-i18n";
 import { RouteRecordRaw } from "vue-router";
-import { shellRoutes } from ".";
 
 interface MenuLink {
   title: string;
+  icon: string;
   route: RouteRecordRaw;
 }
 
 export default defineComponent({
   setup() {
+    const context = useAppContext();
     const menu = ref<MenuLink[]>(
-      shellRoutes
+      context!.modules
+        .flatMap(m => m.routes ?? [])
         .filter((r) => r.meta && r.meta.menu)
         .map((r) => ({
           title: r.meta?.menu?.title || "",
-          route: r,
+          icon: r.meta?.menu?.icon || "",
+          route: r,          
         }))
     );
-
     const { t, locale } = useI18n();
+    locale.value = localStorage.getItem("locale") || "pl";
 
     return {
       t,
       changeLocale: (newLocale: string) => {
         locale.value = newLocale;
+        localStorage.setItem("locale", newLocale);
       },
       menu,      
       expanded: ref(true),
@@ -60,5 +68,13 @@ export default defineComponent({
 });
 </script>
 
-<style >
-</style>
+<i18n >
+{
+    pl: {
+        title: "Zarządzanie flotą"
+    },
+    en: {
+        title: "Fleet management"
+    }
+}
+</i18n>

@@ -1,7 +1,8 @@
-import { Vehicle } from "@/model/vehicles";
+import { RootState } from "@/core";
+import { Vehicle } from "../model";
 import { GetterTree } from "vuex";
 import { State } from "./state";
-import { RootState } from "..";
+
 
 export type Getters = {
   vehicles(state: State): Vehicle[];

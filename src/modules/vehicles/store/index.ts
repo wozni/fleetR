@@ -1,5 +1,5 @@
 import { CommitOptions, DispatchOptions, Module, Store } from "vuex";
-import { RootState } from "..";
+import { RootState } from "@/core";
 import { Actions, actions } from "./actions";
 import { Getters, getters } from "./getters";
 import { Mutations, mutations } from "./mutations";
