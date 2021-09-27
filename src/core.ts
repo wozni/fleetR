@@ -1,6 +1,6 @@
 import { LocaleMessages } from 'vue-i18n';
 import { RouteRecordRaw } from 'vue-router';
-import { Module, ModuleTree } from 'vuex';
+import { ModuleTree } from 'vuex';
 import  VehiclesModule from "./modules/vehicles"
 import { VehiclesStore } from '@/modules/vehicles/store';
 import { State as VehiclesState } from "@/modules/vehicles/store/state";
