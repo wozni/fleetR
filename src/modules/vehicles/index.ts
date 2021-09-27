@@ -1,15 +1,10 @@
-import { AppModule } from '@/core';
-import pl from "./locales/pl.json";
-import en from "./locales/en.json";
+import { AppContext, AppModule } from '@/core';
 import VehiclesComponent from "./views/vehicles.vue";
 import { store as vehicles} from "./store";
 
 const module : AppModule = {
     name: "vehicles",
     
-    locales: {
-        en, pl
-    },
 
     routes: [
         {
@@ -24,7 +19,7 @@ const module : AppModule = {
             component: VehiclesComponent,
             meta: {
                 menu: {
-                    title: "vehicles.vehicles",
+                    title: "shell.menu.vehicles",
                     icon: "mdi-car-multiple"
                 }
             }
@@ -33,6 +28,12 @@ const module : AppModule = {
 
     stores: {
         vehicles
+    },
+
+    initShell: (context: AppContext) => {
+        if (context){
+            console.log('a')
+        }
     }
 }
 export default module;

@@ -28,3 +28,19 @@ export default defineComponent({
   },
 });
 </script>
+<i18n locale="pl" global>
+{
+   "vehicles": {
+      "removeVehicle": "Usuń pojazd",
+      "addVehicle": "Dodaj pojazd"
+    }
+}
+</i18n>
+<i18n locale="en" global>
+{
+   "vehicles": {
+      "removeVehicle": "Remove vehicle",
+      "addVehicle": "Add vehicle"
+    }
+}
+</i18n>

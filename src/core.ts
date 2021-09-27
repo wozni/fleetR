@@ -1,10 +1,14 @@
-import { LocaleMessages } from 'vue-i18n';
+import { LocaleMessageDictionary, LocaleMessages, VueMessageType } from 'vue-i18n';
 import { RouteRecordRaw } from 'vue-router';
 import { ModuleTree } from 'vuex';
+import { inject, ref, Ref } from 'vue';
+
 import  VehiclesModule from "./modules/vehicles"
 import { VehiclesStore } from '@/modules/vehicles/store';
 import { State as VehiclesState } from "@/modules/vehicles/store/state";
-import { inject } from 'vue';
+
+import RoutesModule from "./modules/routes";
+
 
 export interface User {
     login: string
@@ -14,13 +18,13 @@ export interface AppModule {
     name: string,
     routes?: RouteRecordRaw[],
     stores?: ModuleTree<RootState>,
-    locales?: LocaleMessages,
-    init?: (ctx: AppContext) => void;
+    init?: (ctx: AppContext) => void,
+    initShell?: (ctx: AppContext) => void;
 }
 
 
 export interface AppContext {
-    user?: User;
+    user?: Ref<User>;
     modules: AppModule[]
 }
 
@@ -34,7 +38,8 @@ export function useAppContext(): AppContext {
 
 export function createAppContext(): AppContext {
     return {
-        modules: [VehiclesModule]
+        user: ref({ login: "mwozniak"}),
+        modules: [VehiclesModule, RoutesModule]
     }
 }
 

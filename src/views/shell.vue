@@ -2,7 +2,7 @@
   <v-app>
     <v-app-bar app density="compact" color="primary">
       <v-app-bar-nav-icon @click="expanded = !expanded"></v-app-bar-nav-icon>
-      <v-app-bar-title>{{ t("title") }} </v-app-bar-title>
+      <v-app-bar-title>{{ t("shell.title") }} </v-app-bar-title>
       <v-spacer></v-spacer>
       <a @click="changeLocale('pl')">pl</a>|
       <a @click="changeLocale('en')">en</a>
@@ -40,7 +40,7 @@ interface MenuLink {
 }
 
 export default defineComponent({
-  setup() {    
+  setup() {
     const context = useAppContext();
     const menu = ref<MenuLink[]>(
       context && context.modules
@@ -67,14 +67,27 @@ export default defineComponent({
   },
 });
 </script>
-
-<i18n >
+<i18n locale="pl" global>
 {
-    pl: {
-        title: "Zarządzanie flotą"
-    },
-    en: {
-        title: "Fleet management"
+  "shell": {
+    "title": "Zarządzanie flotą pojazdów",
+    "menu": {
+      "vehicles": "Pojazdy",
+      "routes": "Trasy"
     }
+  },    
 }
 </i18n>
+<i18n locale="en" global>
+{
+  "shell": {
+    "title": "Fleet management",
+    "menu": {
+      "vehicles": "Vehicles",
+      "routes": "Routes"
+    }
+  },  
+}
+</i18n>
+
+
