@@ -10,10 +10,10 @@ export interface User {
     login: string
 }
 
-export interface AppModule<R = RootState, S = any> {
+export interface AppModule {
     name: string,
     routes?: RouteRecordRaw[],
-    stores?: ModuleTree<R>,
+    stores?: ModuleTree<RootState>,
     locales?: LocaleMessages,
     init?: (ctx: AppContext) => void;
 }
@@ -21,17 +21,19 @@ export interface AppModule<R = RootState, S = any> {
 
 export interface AppContext {
     user?: User;
-    features: any,
     modules: AppModule[]
 }
 
 export function useAppContext(): AppContext {
-    return inject<AppContext>("context")!;
+    const context = inject<AppContext>("context");
+    if (!context) {
+        throw "AppContext not registered";
+    }
+    return context;
 }
 
 export function createAppContext(): AppContext {
     return {
-        features: {},
         modules: [VehiclesModule]
     }
 }

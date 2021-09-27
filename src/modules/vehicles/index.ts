@@ -1,11 +1,10 @@
-import { AppModule, RootState } from '@/core';
+import { AppModule } from '@/core';
 import pl from "./locales/pl.json";
 import en from "./locales/en.json";
 import VehiclesComponent from "./views/vehicles.vue";
 import { store as vehicles} from "./store";
-import { State } from "./store/state"
 
-const module : AppModule<RootState, State> = {
+const module : AppModule = {
     name: "vehicles",
     
     locales: {
@@ -13,6 +12,12 @@ const module : AppModule<RootState, State> = {
     },
 
     routes: [
+        {
+            path: "",
+            redirect: {
+                name: "vehicles"
+            }            
+        },
         {
             path: "vehicles",
             name: "vehicles",

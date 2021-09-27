@@ -1,8 +1,8 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
-import Shell from '../views/Shell.vue'
+import { createRouter, createWebHistory, Router, RouteRecordRaw } from 'vue-router'
+import Shell from '../views/shell.vue'
 import { AppContext } from '@/core'
 
-export default (context: AppContext) => {
+export default (context: AppContext) : Router => {
   const routes: Array<RouteRecordRaw> = [
     {
       path: '/',

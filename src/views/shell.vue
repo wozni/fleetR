@@ -29,7 +29,7 @@
 
 <script lang="ts">
 import { useAppContext } from "@/core";
-import { defineComponent, inject, ref } from "vue";
+import { defineComponent, ref } from "vue";
 import { useI18n } from "vue-i18n";
 import { RouteRecordRaw } from "vue-router";
 
@@ -40,10 +40,10 @@ interface MenuLink {
 }
 
 export default defineComponent({
-  setup() {
+  setup() {    
     const context = useAppContext();
     const menu = ref<MenuLink[]>(
-      context!.modules
+      context && context.modules
         .flatMap(m => m.routes ?? [])
         .filter((r) => r.meta && r.meta.menu)
         .map((r) => ({
